@@ -1,0 +1,6 @@
+<mat-nav-list>
+    <a mat-list-item *ngIf="!isAuth" routerLink="/signup" (click)="sideNavClicked()"><mat-icon class="nav-menu">face</mat-icon><span>Sign up</span></a>
+    <a mat-list-item *ngIf="!isAuth" routerLink="/login" (click)="sideNavClicked()"><mat-icon class="nav-menu">lock_open</mat-icon><span>Login</span></a>
+    <a mat-list-item *ngIf="isAuth" routerLink="/training" (click)="sideNavClicked()"><mat-icon class="nav-menu">track_changes</mat-icon><span>Training</span></a>  
+    <a mat-list-item *ngIf="isAuth" routerLink="/" (click)="logoutUser()"><mat-icon class="nav-menu">eject</mat-icon><span>Logout</span></a>
+</mat-nav-list>

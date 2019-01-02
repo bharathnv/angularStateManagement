@@ -1,0 +1,21 @@
+<section fxLayout fxLayoutAlign="center" class="new-training">
+  <mat-card *ngIf="!isLoading" fxFlex.xs="100%" fxFlex="400px">
+    <mat-card-title fxLayoutAlign="center">Time to start work out!</mat-card-title>
+    <mat-card-content fxLayoutAlign="center">
+      <mat-form-field>
+        <mat-select placeholder="Select one of the available exercises">
+          <mat-option (click)="selectExercise(exercise)" *ngFor="let exercise of availableExercises" [value]="exercise.id">
+            {{exercise.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions fxLayoutAlign="center">
+      <button *ngIf="availableExercises" mat-button type="submit">Start</button>
+      <button *ngIf="!availableExercises" mat-button type="button" (click)="fetchAgain()">Fetch again</button>
+    </mat-card-actions>
+  </mat-card>
+  <div class="loader" *ngIf="isLoading">
+    <mat-progress-spinner mode="indeterminate" [diameter]="20" [color]="palevioletred"></mat-progress-spinner>
+  </div>
+</section>
